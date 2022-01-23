@@ -1,6 +1,7 @@
 # Deployed Url:
 https://elegant-turing-efa7b9.netlify.app/
 
+# Procedure
 In this article, we will go in depth and make the Amazon Clone using React. We will also be using Firebase for Authentication, Database, Functions and Hosting. Firebase is a great tool to get started with projects quickly. We will also be using HTML, CSS and React Context API. Please keep in mind, you need to have Visual Studio Code and NodeJS installed.
 
 
