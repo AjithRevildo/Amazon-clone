@@ -1,3 +1,6 @@
+# Deployed Url:
+https://elegant-turing-efa7b9.netlify.app/
+
 In this article, we will go in depth and make the Amazon Clone using React. We will also be using Firebase for Authentication, Database, Functions and Hosting. Firebase is a great tool to get started with projects quickly. We will also be using HTML, CSS and React Context API. Please keep in mind, you need to have Visual Studio Code and NodeJS installed.
 
 
@@ -7,15 +10,18 @@ After you click Open with Code you’ll see a huge weird window. Don’t worry w
 So Visual Studio Code is the Code Editor we are going to use, this is what professionals mostly use, but this is more of a personal preference. You can use Atom or any other editor too, but Visual Studio Code makes your life easier.
 Now that in you are in Visual Studio Code, Press Ctrl + J (on Windows) and Command + J (on Mac) and you should see a terminal window at the bottom just like shown below.
 
-Don’t freak out, this is just a regular terminal, we are not hacking anything 😆
 Now that you’re in the terminal, we can now install and setup React app. And this is usually a headache when doing manually. So Facebook, the creator of React made a script which installs and sets up React for you without any type of headache.
+
 To use this script, just type the following in the terminal and press Enter. This will take time so till then you can read what the script actually does below.
 npx create-react-app .
+
 Here’s how this works. npx is a part of npm (Node Package Manager) except npx runs a remote script instead of installing it locally. This is done so that you always have the latest version of React installed in your project. create-react-app is the name of the remote script and “.” specifies that we want the script to make a React project in the SAME FOLDER and not make a new folder for it, if you had to make a new folder name, you could just provide the name of folder instead of “.” and it would make a folder for you.
 You know that it is finished when you see “Happy Hacking” on your terminal. If you see this, we are ready to move on.
 
 Now that we have our React App installed, now we can start it. In the terminal type the following command. This command will start the React App.
+
 npm start
+
 After you hit Enter, you should see your default browser open. Although I suggest Google Chrome because of it’s development tools making life easier, it’s still your personal preference, but we cannot guarantee development quality with other browsers.
 
 If you did everything correct, you must see the following screen on your browser window.
@@ -33,19 +39,27 @@ We are deleting these files because these are not relevant to us in any project.
 That’s not all, if you check the browser window now, I know what you’re seeing, do not freak out, we have the solution, go to App.js and remove the following line from code.
 import logo from “./logo.svg”;
 Also remove everything under the first <div> element from your App.js file. You’re code should look like the following:
+    
+    
 import React from “react”;
 import “./App.css”;
 function App() {
     return <div className=”app”>React App</div>;
 }
 export default App;
+    
+    
 Now let’s cleanup the CSS files a bit.
 Go to App.css and remove all the contents of your file.
 Now go to index.css and add this piece of code on the top. And look at the change on the app. What do you see?
-*{
+
+    
+    *{
  margin: 0;
  padding: 0;
 }
+    
+    
 This will get rid of the margin and padding of the page.
 Now we have our React project perfectly set up. Now we can start making the Amazon Clone.
 1. Setting up the React Router
@@ -63,12 +77,18 @@ Let’s go in Home.js. Just type in “rfce” and you should get an option to a
 Hit Enter while on “rfce”. This will autocomplete the React boiler plate for you. Now let’s change the class of the div element provided us to “home”. We follow BEM convention while styling our components.
 BEM Convention helps our CSS and JSX organized for us to read later, and everything becomes easy to keep track of.
 Let’s just add some text there for now, let’s say Hello. The code on the Home.js file now should be
-import React from "react";
+
+    
+    import React from "react";
 function Home() {
    return <div className="home">Hello</div>;
 }
 export default Home;
+ 
+    
 If you see the browser, you will not see anything because we haven’t prepared our entry point App.js yet. So let’s open the file and start setting up the React Router. First of all, we need to import the dependencies. Import them using the following code at the top of App.js
+    
+    
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 Once you’ve done importing the code, you can now use React Router in your file. Now that we have imported React Router, let’s configure React Router according to our needs. Use the below code in your App.js.
 import React from "react";
@@ -89,6 +109,8 @@ return (
 );
 }
 export default App;
+    
+    
 Now you can see Hello on the screen. Don’t worry, we are now running over the code to see what we have done.
 Our motive is to have Home component to be rendered on the default route that is “/”.
 To use the Home component, we need to import it, so we imported it at the top.
@@ -104,10 +126,14 @@ Once you installed the dependencies, you can use it to display SVG icons which a
 So enough talking, let’s get back to code. Now let’s make a new component called Header.js and let’s make a new file and call it Header.css just as we did with the home component. In each component, we will follow the same steps
 We have to initialize the component boiler plate using “rfce” and follow the BEM convention and include the CSS file and update the class names.
 We have the component ready. Before we actually start designing it, we need to include it in Router so that we can actually display it. In App.js where you mentioned Route for “/” route, let’s include the Header component in it too. Your updated route should look like this
+    
+    
 <Route path="/">
   <Header />
   <Home />
 </Route>
+    
+    
 Remember you place Navbar before the Home component, because the Amazon Navbar is always at the top.
 Now finally let’s get back to Header.js and start setting up the layout of our classic Amazon Navbar. The code in your Header.js should look like this. We would go through the entire code after the code block.
 
@@ -144,12 +170,16 @@ You cannot see the products on the screen yet! You need to place the products on
 But we are not done yet! If we try to save and return to the browser, we will see this.
 
 Looks weird right? Let’s fix this! Go to your Home.css and add styles for the missing class!
+    
+    
 .home__row {  
   display: flex; 
   z-index: 1; 
   margin-left: 5px;  
   margin-right: 5px;
 }
+    
+    
 After adding this, we have a better output. It should be looking like this!
 
 But there’s still something to be taken care of! The white spaces between the Products! Let’s go ahead and fix them! Let’s go to index.css and change the background color of the app! Your index.css should look like this.
@@ -268,9 +298,13 @@ We have two local states which keep the track of the values of the textboxes
 Whenever the value of the textboxes change, we change the value of state
 But you cannot visit the page yet! You need to add it to React Router and update the Navbar!
 Go to App.js and enter this route before the main “/” route.
+    
+    
 <Route path="/login">
   <Login />
 </Route>
+    
+    
 Now go to Header.js and use the content.
 
 So here are the things we added.
@@ -328,3 +362,5 @@ This will basically ask React to build your app so that you can run this in prod
 firebase deploy
 Once you’ve completed this, you should get an URL at the end of the process. This is the URL where your app is hosted online.
 Congrats you just deployed your Amazon Clone on Firebase Hosting!!
+    
+    //for my convient i use netlify to deploy
